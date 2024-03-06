@@ -1,0 +1,61 @@
+import React from "react";
+
+// Reusable Button Component
+const Button = ({ children, onClick, type = "button", styles = "" }) => (
+  <button
+    type={type}
+    className={`px-16 py-4 font-medium text-center text-amber-100 bg-orange-500 rounded-lg whitespace-nowrap ${styles}`}
+    onClick={onClick}>
+    {children}
+  </button>
+);
+
+const SignUpForm = () => {
+  return (
+    <form className="flex flex-col px-6 mt-6 w-full">
+      <label htmlFor="fullName" className="text-base text-black">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Type your full name" className="justify-center items-start py-3.5 pr-16 pl-2.5 mt-3 text-gray-400 whitespace-nowrap rounded-lg border border-solid border-black border-opacity-30" aria-label="Type your full name" />
+      
+      <label htmlFor="emailAddress" className="mt-6 text-base text-black">Email Address</label>
+      <input type="email" id="emailAddress" name="emailAddress" placeholder="Type your email address" className="justify-center items-start py-3.5 pr-16 pl-2.5 mt-3 text-gray-400 whitespace-nowrap rounded-lg border border-solid border-black border-opacity-30" aria-label="Type your email address" />
+      
+      <label htmlFor="password" className="mt-6 text-base text-black">Password</label>
+      <input type="password" id="password" name="password" placeholder="Type your password" className="justify-center items-start py-3.5 pr-16 pl-2.5 mt-3 text-gray-400 whitespace-nowrap rounded-lg border border-solid border-black border-opacity-30" aria-label="Type your password" />
+      
+      <Button type="submit" styles="mt-6">Continue</Button>
+    </form>
+  );
+};
+
+// Main component encapsulating the sign-up page
+const SignUpPage = () => {
+  return (
+    <main className="flex flex-col pt-4 pb-12 mx-auto w-full bg-white max-w-[480px]">
+      <header className="flex flex-col px-5 w-full">
+        <div className="flex gap-5 justify-between text-base font-medium leading-5 text-center text-black whitespace-nowrap">
+          <time dateTime="09:41">9:41</time>
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/93eee69c165f4d646b1ca2820261d6f616902879d917129af5ec7deec7799450?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&" className="aspect-[5.56] w-[67px]" alt="Logo" />
+        </div>
+        <section className="flex gap-5 justify-between mt-2">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bab1d5e86f9298f8e11cb0b2fce1ef68f7791300824e535a695f5a40cd0602d9?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&" className="my-auto w-6 aspect-square fill-orange-500" alt="Decorative Icon" />
+          <div className="flex flex-col flex-1">
+            <h2 className="text-2xl font-medium text-black">Sign Up</h2>
+            <p className="mt-2 text-sm font-light text-gray-400">Register and eat</p>
+          </div>
+        </section>
+      </header>
+      <section className="flex flex-col py-4 mt-14 w-full text-sm bg-white">
+        <div className="flex flex-col justify-center self-center px-3 py-2.5 max-w-full font-light text-center text-gray-400 whitespace-nowrap rounded-full stroke-[1px] w-[115px]">
+          <div className="justify-center items-center px-7 w-full rounded-full bg-zinc-100 h-[92px]">Add<br />Photo</div>
+        </div>
+        <SignUpForm />
+      </section>
+      <footer className="flex gap-1.5 self-center mt-4 text-center whitespace-nowrap">
+        <p className="grow text-zinc-600">I Already Have an Account</p>
+        <a href="/login" className="font-semibold text-red-600" tabIndex="0">Log in</a>
+      </footer>
+    </main>
+  );
+};
+
+export default SignUpPage;

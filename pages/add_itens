@@ -1,0 +1,56 @@
+import React from "react";
+
+// Reusable component for images with alt text
+const ImageWithAlt = ({ src, alt, className }) => (
+  <img src={src} alt={alt} className={className} loading="lazy" />
+);
+
+// Main application component
+const OrderApp = () => {
+  return (
+    <main className="flex flex-col items-center pt-4 mx-auto w-full bg-gray-100 max-w-[480px]">
+      <header className="flex gap-5 justify-between w-full whitespace-nowrap max-w-[350px]">
+        <section className="flex flex-col px-5 text-base font-thin tracking-tight leading-5 text-center text-black">
+          <div className="italic">9:41</div>
+          <ImageWithAlt
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/bab1d5e86f9298f8e11cb0b2fce1ef68f7791300824e535a695f5a40cd0602d9?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+            alt=""
+            className="self-center mt-8 aspect-[1.37] fill-orange-500 w-[33px]"
+          />
+        </section>
+        <section className="flex flex-col self-start px-5 text-lg font-semibold text-black">
+          <ImageWithAlt
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/0fddee132481a04a631fa5d04f6186cd86439aed8cbe6c295508a07123b6c447?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+            alt=""
+            className="self-end aspect-[6.67] w-[67px]"
+          />
+          <h2 className="mt-9">Orders</h2>
+        </section>
+      </header>
+      <ImageWithAlt
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/384ebcab7578d3112c271340b80caf04f3b7b139c054b0c4990395efc20574f3?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+        alt=""
+        className="mt-40 max-w-full aspect-[1.16] w-[113px]"
+      />
+      <div className="mt-20 text-3xl font-semibold text-center text-black whitespace-nowrap">
+        No orders yet
+      </div>
+      <p className="mt-6 text-lg text-center text-black">
+        Hit the orange button down <br /> below to Create an order
+      </p>
+      <button
+        className="justify-center items-center px-16 py-7 mt-32 w-full text-lg font-semibold text-center whitespace-nowrap bg-orange-600 max-w-[314px] rounded-[30px] text-neutral-100"
+        tabIndex="0"
+      >
+        Start ordering
+      </button>
+      <ImageWithAlt
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/082f5c7af5a53cc048c230ddf1dc97afcd71636a5e33a3ae7a3b20ef4d83ae6b?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+        alt=""
+        className="self-stretch mt-12 w-full aspect-[7.14]"
+      />
+    </main>
+  );
+};
+
+export default OrderApp;

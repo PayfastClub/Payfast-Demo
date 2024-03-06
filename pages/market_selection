@@ -1,0 +1,45 @@
+import React from "react";
+
+const MarketOption = ({ marketName }) => (
+  <div className="flex gap-5 justify-between px-7 py-3.5 mt-12 rounded-xl bg-orange-500 bg-opacity-50">
+    <div className="my-auto">{marketName}</div>
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/0fddee132481a04a631fa5d04f6186cd86439aed8cbe6c295508a07123b6c447?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+      className="aspect-[0.52] stroke-[2px] stroke-black w-[11px]"
+      alt={`Arrow icon for ${marketName}`}
+    />
+  </div>
+);
+
+const MarketSelection = () => {
+  const markets = ["Market 1", "Market 2", "Market 3", "Market 4", "Market 5"];
+
+  return (
+    <div className="flex flex-col px-6 pt-4 pb-12 mx-auto w-full text-xl font-medium tracking-tight leading-8 bg-white max-w-[480px] text-black text-opacity-40">
+      <header className="flex gap-5 justify-between pr-2.5 text-base font-thin tracking-tight leading-5 text-center text-black whitespace-nowrap">
+        <time className="italic">9:41</time>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/bab1d5e86f9298f8e11cb0b2fce1ef68f7791300824e535a695f5a40cd0602d9?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+          className="self-start aspect-[6.67] w-[67px]"
+          alt="Company logo"
+        />
+      </header>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/c6ca80805e499a258a61e45e89abf108be0603054708f67d370393df449b272c?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+        className="mt-6 w-6 aspect-square fill-orange-500"
+        alt="Decorative arrow"
+      />
+      <h1 className="self-center mt-6 text-2xl font-semibold tracking-tight text-black whitespace-nowrap">
+        Select your market
+      </h1>
+      {markets.map((market) => (
+        <MarketOption key={market} marketName={market} />
+      ))}
+    </div>
+  );
+};
+
+export default MarketSelection;

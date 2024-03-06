@@ -1,0 +1,50 @@
+import React from "react";
+
+// Reusable Social Button Component
+const SocialButton = ({ src, alt }) => (
+  <div className="flex flex-1 justify-center items-center px-4 bg-pink-50 border border-rose-500 border-solid aspect-square h-[54px] rounded-[50px]">
+    <img loading="lazy" src={src} alt={alt} className="w-full aspect-square" />
+  </div>
+);
+
+const LoginScreen = () => {
+  const socialButtons = [
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/8e1e5f71375f4391592a99477c02e1d1e1b3ed383e97a79253bf77784fdbbea5?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&", alt: "Login with Facebook" },
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/3a738a448d69d9c069099af6b3146d92f128bcfd3886263eca56ab165b09b31e?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&", alt: "Login with Google" },
+    { src: "https://cdn.builder.io/api/v1/image/assets/TEMP/7d3d1d6c30a2dd5fdae382b5832d7ac6b75533cfdc23576a1c6b53fd3297a214?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&", alt: "Login with Twitter" },
+  ];
+
+  return (
+    <div className="flex flex-col items-center pt-4 pb-12 mx-auto w-full bg-white max-w-[480px]">
+      <header className="flex flex-col self-stretch px-5 w-full text-xs font-medium">
+        <time className="flex gap-5 justify-between px-px text-base leading-5 text-center text-black whitespace-nowrap">
+          9:41
+        </time>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/93eee69c165f4d646b1ca2820261d6f616902879d917129af5ec7deec7799450?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&"
+          alt="Payfast logo"
+          className="aspect-[5.56] w-[67px]"
+        />
+      </header>
+      <h1 className="mt-10 text-4xl font-bold leading-10 text-black">
+        Welcome <br /> To Payfast <br />
+      </h1>
+      <section className="mt-20">
+        <div className="flex gap-2.5 items-start px-5">
+          {socialButtons.map((button, index) => (
+            <SocialButton key={index} src={button.src} alt={button.alt} />
+          ))}
+        </div>
+        <div className="flex flex-col gap-1.5 px-5 mt-7 text-sm text-center">
+          <span className="grow text-zinc-600">Create An Account</span>
+          <button className="py-0.5 font-semibold text-rose-500 underline aspect-[3.35]">
+            Sign Up
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default LoginScreen;

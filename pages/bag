@@ -1,0 +1,79 @@
+import React from "react";
+
+const ProductCard = ({ src, title, subtitle, size, quantitySrc, price, discountPrice, trashSrc }) => (
+  <div className="flex gap-5 justify-between px-4 py-2 w-full bg-white">
+    <div className="flex gap-2.5 justify-between text-xs">
+      <img loading="lazy" src={src} alt="" className="aspect-[1.32] w-[98px]" />
+      <div className="flex flex-col flex-1 self-start mt-1.5">
+        <div className="text-sm text-neutral-900">{title}</div>
+        <div className="text-xs text-neutral-400">{subtitle}</div>
+        <div className="flex gap-5 justify-between mt-5 text-neutral-500">
+          <div>Size</div>
+          <div>Quantity</div>
+        </div>
+        <div className="flex gap-2.5 justify-between text-black">
+          <div className="flex gap-3 justify-between py-1 pr-2.5 pl-1 rounded-none border-solid border-[0.405px] border-neutral-900">
+            <div>XL</div>
+            <img loading="lazy" src={quantitySrc} alt="" className="self-start aspect-[1.25] fill-neutral-900 w-[5px]" />
+          </div>
+          <div className="flex gap-5 justify-between py-1 pr-2.5 pl-1 rounded-none border-solid border-[0.405px] border-neutral-900">
+            <div>1</div>
+            <img loading="lazy" src={quantitySrc} alt="" className="self-start aspect-[1.25] fill-neutral-900 w-[5px]" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div className="flex flex-col self-start mt-1.5">
+      <div className="text-sm text-orange-500">{price}</div>
+      <div className="mt-1 text-xs text-neutral-500">{discountPrice}</div>
+      <img loading="lazy" src={trashSrc} alt="Delete item" className="self-end mt-8 aspect-square w-[15px]" />
+    </div>
+  </div>
+);
+
+const ShoppingCart = () => {
+  const products = [
+    // Array of products each with src, title, subtitle, size, quantitySrc, price, discountPrice, trashSrc
+  ];
+
+  return (
+    <main className="flex flex-col whitespace-nowrap bg-zinc-100 max-w-[375px]">
+      <header className="flex gap-5 justify-between px-2.5 py-2 w-full bg-orange-500 bg-opacity-80">
+        <div className="flex gap-2 justify-between items-start">
+          <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c1d22433779313e67cb297a4e0cab0f4baa234bcf58812f4329afae809fa6bd8?apiKey=3bcfb2dcfda047bfb13dfb3986c0bdc1&" alt="Shopping bag icon" className="self-stretch aspect-square w-[30px]" />
+          <div className="mt-3.5 text-base font-semibold text-white">Bag</div>
+          <div className="grow mt-4 text-xs text-zinc-100">(5 Items)</div>
+        </div>
+        <button className="self-start mt-4 text-sm font-medium text-white">Edit</button>
+      </header>
+      {products.map((product, index) => (
+        <ProductCard key={index} {...product} />
+      ))}
+      <div className="flex gap-5 justify-between px-3 py-2.5 mt-4 w-full bg-stone-300">
+        <form className="flex grow justify-between items-center">
+          <input className="grow justify-center items-start py-1.5 px-3 text-xs bg-white rounded-sm text-neutral-400" placeholder="Voucher/gift card" aria-label="Voucher/gift card" />
+          <button type="submit" className="justify-center px-5 py-1.5 text-xs font-semibold text-white bg-orange-500 rounded-sm aspect-[3.32]">Apply</button>
+        </form>
+      </div>
+      <footer className="flex gap-5 justify-between pt-3.5 pr-7 pb-7 pl-3 w-full bg-white">
+        <div className="flex gap-px items-start self-start font-medium text-black">
+          <div className="flex flex-col flex-1">
+            <div className="text-xs">Sub total</div>
+            <div className="mt-2.5 text-xs">Discount</div>
+            <div className="mt-1.5 text-xs text-neutral-500">From Vouncher</div>
+            <div className="mt-9 text-sm">Total</div>
+          </div>
+          <div className="grow text-xs">(4 product)</div>
+        </div>
+        <div className="flex flex-col text-sm">
+          <div className="text-black">$ 797.8</div>
+          <div className="mt-3.5 text-xs text-neutral-500">$0.00</div>
+          <div className="mt-9 font-medium text-orange-500">$ 797.8</div>
+        </div>
+      </footer>
+      <button className="mx-auto justify-center items-center px-16 py-3.5 w-full text-sm font-semibold text-white bg-orange-500 rounded">CHECKOUT</button>
+    </main>
+  );
+}
+
+export default ShoppingCart;
