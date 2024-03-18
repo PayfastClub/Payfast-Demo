@@ -3,6 +3,8 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
+import { MaterialIcons } from '@expo/vector-icons';
+
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
@@ -29,7 +31,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: 'Scan Product',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Link href="/modal" asChild>
@@ -48,12 +50,26 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="MarketSelection"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Market Selection',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         }}
       />
+      <Tabs.Screen
+        name="ProfileScreen"
+        options={{
+          title: 'Profile Info',
+          tabBarIcon: ({ color }) => <TabBarIcon name="circle" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="ShoppingBag"
+        options={{
+          title: 'Bag',
+          tabBarIcon: ({ color }) => <TabBarIcon name="shopping-bag" color={color} />,
+        }}
+      />      
     </Tabs>
   );
 }

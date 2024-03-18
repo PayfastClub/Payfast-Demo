@@ -1,5 +1,6 @@
 const tintColorLight = '#2f95dc';
 const tintColorDark = '#fff';
+const tintColorOrange = '#FFA500'; // This is just an example orange color.
 
 export default {
   light: {
@@ -15,5 +16,12 @@ export default {
     tint: tintColorDark,
     tabIconDefault: '#ccc',
     tabIconSelected: tintColorDark,
+  },
+  orange: {
+    text: '#FFFFFF', // White text for contrast against darker backgrounds.
+    background: '#FF5722', // A deeper orange shade for backgrounds.
+    tint: tintColorOrange, // Primary theme color for the app.
+    tabIconDefault: '#FFCCBC', // A lighter orange for default tab icons.
+    tabIconSelected: tintColorOrange, // Use the primary orange color for selected tab icons.
   },
 };
